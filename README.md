@@ -2,9 +2,11 @@
 
 Una experiencia web interactiva, romántica y cinematográfica: un viaje por un universo de flores amarillas dividido en 6 estaciones, con fotos y una canción propias.
 
-Hecho solo con HTML, CSS y JavaScript. Sin frameworks, sin backend, sin instalación.
+Hecho solo con HTML, CSS y JavaScript. Sin frameworks, sin backend, sin instalación, y funciona igual de bien en teléfono, tablet o computadora.
 
 ## Estructura del proyecto
+
+Las fotos y la canción van sueltas, en la misma carpeta que `index.html` (sin subcarpetas):
 
 ```
 universo-flores-amarillas/
@@ -14,23 +16,21 @@ universo-flores-amarillas/
 │   └── styles.css
 ├── js/
 │   └── app.js
-├── images/
-│   ├── foto1.jpeg
-│   ├── foto2.jpeg
-│   ├── foto3.jpeg
-│   ├── foto4.jpeg
-│   ├── foto5.jpeg
-│   └── foto6.jpeg
-├── audio/
-│   └── cancion.mp3
+├── foto1.jpeg
+├── foto2.jpeg
+├── foto3.jpeg
+├── foto4.jpeg
+├── foto5.jpeg
+├── foto6.jpeg
+├── cancion.mp3
 └── README.md
 ```
 
 ## Cómo usarlo
 
 1. Descarga o clona esta carpeta.
-2. Coloca tus 6 fotografías dentro de `images/`, con estos nombres exactos: `foto1.jpeg`, `foto2.jpeg`, `foto3.jpeg`, `foto4.jpeg`, `foto5.jpeg`, `foto6.jpeg` (también puedes usar `.jpg` si lo prefieres, solo asegúrate de que el nombre coincida con el que aparece en `js/app.js`).
-3. Coloca tu canción dentro de `audio/` con el nombre `cancion.mp3`.
+2. Coloca tus 6 fotografías directamente en la raíz del proyecto (junto a `index.html`), con estos nombres exactos: `foto1.jpeg`, `foto2.jpeg`, `foto3.jpeg`, `foto4.jpeg`, `foto5.jpeg`, `foto6.jpeg`.
+3. Coloca tu canción también en la raíz, con el nombre `cancion.mp3`.
 4. Abre `js/app.js` si quieres cambiar los mensajes de cada estación (busca el bloque `CONFIGURACIÓN DE LAS 6 ESTACIONES`).
 5. Abre `index.html` en tu navegador para probarlo localmente.
 
@@ -50,16 +50,16 @@ Cada número corresponde a una estación (de la 1 a la 6). Números más altos =
 
 ### Cambiar la canción
 
-Reemplaza el archivo `audio/cancion.mp3` por el tuyo (mantén el mismo nombre), o cambia la ruta en `index.html`:
+Reemplaza el archivo `cancion.mp3` por el tuyo (mantén el mismo nombre), o cambia la ruta en `index.html`:
 
 ```html
-<audio id="musica" src="audio/cancion.mp3" loop preload="auto"></audio>
+<audio id="musica" src="cancion.mp3" loop preload="auto"></audio>
 ```
 
 ## Cómo publicarlo en GitHub Pages
 
 1. Crea un repositorio nuevo en GitHub (puede ser público o privado).
-2. Sube todos los archivos y carpetas de este proyecto tal cual están, asegurándote de que `index.html` quede en la raíz del repositorio (no dentro de una subcarpeta).
+2. Sube todos los archivos y carpetas de este proyecto tal cual están (incluyendo tus fotos y tu canción sueltas junto a `index.html`), asegurándote de que `index.html` quede en la raíz del repositorio.
 3. Entra al repositorio y ve a **Settings**.
 4. En el menú lateral, busca la sección **Pages**.
 5. En "Branch", selecciona la rama `main` y la carpeta `/ (root)`.
@@ -71,4 +71,5 @@ Reemplaza el archivo `audio/cancion.mp3` por el tuyo (mantén el mismo nombre), 
 - La música solo comienza cuando se presiona "🌻 Empezar aventura" (los navegadores bloquean el sonido automático).
 - Si el navegador bloquea igualmente la reproducción, aparece un botón de sonido para activarla manualmente.
 - El proyecto respeta la preferencia de "reducir movimiento" del sistema operativo, por si la persona que lo abre es sensible a las animaciones.
+- Es completamente responsive: se adapta a pantallas de teléfono, tablet y computadora, con botones grandes y fáciles de tocar y sin scroll horizontal.
 - Funciona sin conexión a internet una vez descargado (no depende de fuentes, CDNs ni APIs externas).
