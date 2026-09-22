@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nuestro pequeño universo 🌻</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Lienzo de fondo: estrellas, partículas, flores y pétalos flotantes -->
+  <canvas id="universo" aria-hidden="true"></canvas>
+
+  <!-- ================================================== -->
+  <!-- PANTALLA INICIAL -->
+  <!-- ================================================== -->
+  <section id="pantalla-inicio" class="pantalla" aria-label="Pantalla de inicio">
+    <div class="contenido-inicio">
+      <h1>¿Quieres comenzar una aventura?</h1>
+      <p>Un pequeño viaje hecho especialmente para ti 🌻</p>
+      <button id="btn-empezar" class="boton-principal">
+        🌻 Empezar aventura
+      </button>
+    </div>
+  </section>
+
+  <!-- ================================================== -->
+  <!-- ESCENARIO DEL VIAJE (estaciones) -->
+  <!-- ================================================== -->
+  <section id="pantalla-viaje" class="pantalla oculto" aria-label="Viaje por las estaciones">
+
+    <div class="estacion-foto-wrapper">
+      <img id="estacion-foto" class="estacion-foto" src="" alt="">
+      <div class="estacion-velo"></div>
+    </div>
+
+    <p id="estacion-mensaje" class="estacion-mensaje" aria-live="polite"></p>
+
+    <div class="barra-inferior">
+      <span id="contador-estaciones" class="contador">1 / 6</span>
+      <button id="btn-continuar" class="boton-secundario">Continuar →</button>
+    </div>
+
+  </section>
+
+  <!-- Botón de sonido, visible durante todo el viaje -->
+  <button id="btn-sonido" class="boton-sonido oculto" aria-label="Silenciar música">🔊</button>
+
+  <!-- ================================================== -->
+  <!-- CONFIGURACIÓN DE LA MÚSICA -->
+  <!-- Reemplaza audio/cancion.mp3 por tu propia canción -->
+  <!-- ================================================== -->
+  <audio id="musica" src="audio/cancion.mp3" loop preload="auto"></audio>
+
+  <script src="js/app.js" defer></script>
+</body>
+</html>
