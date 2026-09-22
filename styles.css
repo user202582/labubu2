@@ -1,0 +1,326 @@
+/* ==================================================
+   NUESTRO PEQUEÑO UNIVERSO 🌻
+   Hoja de estilos principal
+   ================================================== */
+
+:root {
+  --fondo-1: #05060f;
+  --fondo-2: #0b0e22;
+  --amarillo: #ffd447;
+  --amarillo-suave: #ffe38a;
+  --texto: #f6f3e8;
+  --texto-tenue: #b9b8c9;
+  --velo: rgba(5, 6, 15, 0.55);
+  --duracion-transicion: 1.4s;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--fondo-1);
+  color: var(--texto);
+  font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Lienzo del universo: estrellas, partículas, flores y pétalos */
+#universo {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background: radial-gradient(ellipse at 50% 20%, var(--fondo-2), var(--fondo-1) 70%);
+}
+
+/* ==================================================
+   PANTALLAS GENERALES
+   ================================================== */
+
+.pantalla {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 24px;
+}
+
+.oculto {
+  display: none !important;
+}
+
+/* ==================================================
+   PANTALLA INICIAL
+   ================================================== */
+
+.contenido-inicio {
+  max-width: 480px;
+  animation: aparecer-suave 1.6s ease-out both;
+}
+
+.contenido-inicio h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  font-size: clamp(1.6rem, 5vw, 2.4rem);
+  line-height: 1.3;
+  margin: 0 0 12px;
+  color: var(--texto);
+}
+
+.contenido-inicio p {
+  font-size: clamp(0.95rem, 3vw, 1.1rem);
+  color: var(--texto-tenue);
+  margin: 0 0 32px;
+}
+
+.boton-principal {
+  font-size: clamp(1rem, 3vw, 1.15rem);
+  padding: 16px 32px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 212, 71, 0.5);
+  background: linear-gradient(180deg, var(--amarillo-suave), var(--amarillo));
+  color: #24230a;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 0 24px rgba(255, 212, 71, 0.35);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  min-height: 48px;
+}
+
+.boton-principal:hover,
+.boton-principal:focus-visible {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 0 36px rgba(255, 212, 71, 0.55);
+}
+
+.boton-principal:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* ==================================================
+   ESCENARIO DEL VIAJE / ESTACIONES
+   ================================================== */
+
+#pantalla-viaje {
+  flex-direction: column;
+  padding: 0;
+}
+
+.estacion-foto-wrapper {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.estacion-foto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transform: scale(1.08);
+  opacity: 0;
+  filter: blur(8px);
+  transition:
+    opacity var(--duracion-transicion) ease,
+    filter var(--duracion-transicion) ease,
+    transform 6s ease-out;
+}
+
+.estacion-foto.visible {
+  opacity: 1;
+  filter: blur(0);
+  transform: scale(1);
+}
+
+.estacion-velo {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(5, 6, 15, 0.35) 0%,
+    rgba(5, 6, 15, 0.15) 40%,
+    rgba(5, 6, 15, 0.75) 100%
+  );
+}
+
+.estacion-mensaje {
+  position: relative;
+  z-index: 3;
+  margin: 0 auto;
+  padding: 0 28px;
+  max-width: 620px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.1rem, 4vw, 1.6rem);
+  line-height: 1.5;
+  color: var(--texto);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+  align-self: center;
+  margin-top: auto;
+  margin-bottom: 96px;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.estacion-mensaje.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.barra-inferior {
+  position: absolute;
+  bottom: 22px;
+  bottom: calc(22px + env(safe-area-inset-bottom, 0px));
+  left: 0;
+  right: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+}
+
+.contador {
+  font-size: 0.85rem;
+  color: var(--texto-tenue);
+  letter-spacing: 0.03em;
+}
+
+.boton-secundario {
+  font-size: 0.95rem;
+  padding: 10px 22px;
+  border-radius: 999px;
+  border: 1px solid rgba(246, 243, 232, 0.35);
+  background: rgba(5, 6, 15, 0.4);
+  color: var(--texto);
+  cursor: pointer;
+  min-height: 44px;
+  transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+}
+
+.boton-secundario:hover,
+.boton-secundario:focus-visible {
+  background: rgba(255, 212, 71, 0.18);
+  border-color: rgba(255, 212, 71, 0.55);
+  transform: translateY(-1px);
+}
+
+.boton-secundario:active {
+  transform: translateY(0);
+}
+
+/* Estado "de viaje": la foto se difumina y el universo cobra protagonismo */
+#pantalla-viaje.en-transito .estacion-foto {
+  opacity: 0;
+  filter: blur(18px);
+  transform: scale(1.15);
+}
+
+#pantalla-viaje.en-transito .estacion-mensaje {
+  opacity: 0;
+  transform: translateY(14px);
+}
+
+/* ==================================================
+   BOTÓN DE SONIDO
+   ================================================== */
+
+.boton-sonido {
+  position: fixed;
+  top: 18px;
+  top: calc(18px + env(safe-area-inset-top, 0px));
+  right: 18px;
+  right: calc(18px + env(safe-area-inset-right, 0px));
+  z-index: 10;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(246, 243, 232, 0.3);
+  background: rgba(5, 6, 15, 0.5);
+  color: var(--texto);
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.boton-sonido:hover,
+.boton-sonido:focus-visible {
+  background: rgba(255, 212, 71, 0.2);
+  transform: scale(1.06);
+}
+
+/* ==================================================
+   ANIMACIONES
+   ================================================== */
+
+@keyframes aparecer-suave {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==================================================
+   RESPONSIVE
+   ================================================== */
+
+@media (max-width: 600px) {
+  .estacion-mensaje {
+    margin-bottom: 108px;
+  }
+
+  .barra-inferior {
+    bottom: 16px;
+    gap: 12px;
+  }
+
+  .boton-secundario {
+    padding: 9px 18px;
+    font-size: 0.9rem;
+  }
+}
+
+/* ==================================================
+   ACCESIBILIDAD: reducir movimiento
+   ================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .contenido-inicio,
+  .estacion-foto,
+  .estacion-mensaje,
+  .boton-principal,
+  .boton-secundario,
+  .boton-sonido {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .estacion-foto {
+    transform: none !important;
+  }
+}
+
+/* Foco visible para navegación por teclado */
+button:focus-visible {
+  outline: 2px solid var(--amarillo);
+  outline-offset: 3px;
+}

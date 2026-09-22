@@ -6,16 +6,14 @@ Hecho solo con HTML, CSS y JavaScript. Sin frameworks, sin backend, sin instalac
 
 ## Estructura del proyecto
 
-Las fotos y la canción van sueltas, en la misma carpeta que `index.html` (sin subcarpetas):
+Todo va suelto, sin ninguna subcarpeta: index.html, styles.css, app.js, tus fotos y tu canción, todos al mismo nivel:
 
 ```
 universo-flores-amarillas/
 │
 ├── index.html
-├── css/
-│   └── styles.css
-├── js/
-│   └── app.js
+├── styles.css
+├── app.js
 ├── foto1.jpeg
 ├── foto2.jpeg
 ├── foto3.jpeg
@@ -31,16 +29,16 @@ universo-flores-amarillas/
 1. Descarga o clona esta carpeta.
 2. Coloca tus 6 fotografías directamente en la raíz del proyecto (junto a `index.html`), con estos nombres exactos: `foto1.jpeg`, `foto2.jpeg`, `foto3.jpeg`, `foto4.jpeg`, `foto5.jpeg`, `foto6.jpeg`.
 3. Coloca tu canción también en la raíz, con el nombre `cancion.mp3`.
-4. Abre `js/app.js` si quieres cambiar los mensajes de cada estación (busca el bloque `CONFIGURACIÓN DE LAS 6 ESTACIONES`).
+4. Abre `app.js` si quieres cambiar los mensajes de cada estación (busca el bloque `CONFIGURACIÓN DE LAS 6 ESTACIONES`).
 5. Abre `index.html` en tu navegador para probarlo localmente.
 
 ### Cambiar los mensajes
 
-En `js/app.js`, dentro del arreglo `estaciones`, cada objeto tiene una propiedad `mensaje`. Solo edita el texto entre comillas.
+En `app.js`, dentro del arreglo `estaciones`, cada objeto tiene una propiedad `mensaje`. Solo edita el texto entre comillas.
 
 ### Cambiar la velocidad del viaje
 
-En `js/app.js`, busca el bloque `VELOCIDAD DE CADA ESTACIÓN`:
+En `app.js`, busca el bloque `VELOCIDAD DE CADA ESTACIÓN`:
 
 ```js
 const velocidades = [0.8, 1, 1.2, 1.5, 1.8, 2.2];
